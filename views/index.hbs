@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentt</title>
+    <link rel="stylesheet" href="/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/home.css">
+    {{!-- <link rel="stylesheet" href="/login.css"> --}}
+
+</head>
+
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
+        <h1 class="nav-logo">NYC<span>KIQS</span>
+        </h1>
+        
+        <div class="container">
+            <a href="#" class="navbar-brand">
+                 {{!-- <img src="/images/logo.PNG">  --}}
+            </a>
+            <button
+                type="button"
+                class="navbar-toggler"
+                data-bs-target="#navbarNav"
+                data-bs-toggle="collapse"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle Navbar"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- <div class="mx-center"></div>  -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">All</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Adidas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Jordan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Nike</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white">Designer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {{#if user }}
+            <div class="dropdown">
+                <a href="/profile"><ion-icon name="person-sharp" class="person-icon" color="danger"></ion-icon></a>
+                <div class="dropdown-content">
+                    <a href="/auth/logout">Log out</a>
+                </div>
+            </div>
+        {{else}}
+            <div class="icons">
+                <a href="/profile"><ion-icon name="person-sharp" class="person-icon" color="danger"></ion-icon></a>
+                <a href="#"> <ion-icon class="shopping" name="cart-outline" color="danger" onclick="show()"></ion-icon></a><span class="cart-number">0</span>
+            </div>
+        {{/if}}
+    </nav>
+
+
+    <!-- Banner Image -->
+    <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
+        <div class="content text-center">
+            {{!-- <h1 class="text-white">NYCKiqs</h1> --}}
+        </div>
+    </div>
+
+    <!-- Main content -->
+
+    <!-- <div class="container my-5 d-grid gap-5">
+        <div class="p-5 border">
+            <p>
+                
+            </p>
+        </div>
+    </div> -->
+<!-- footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+
+        <div class="container text-center text-md-left"> 
+{{!-- container is a bootstrap class that centers and gives max width to div --}}
+            <div class="row text-center text-md-left">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Company Name</h5>
+                    <p> stuff about this company and blah blah blah blah</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-x1-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Products</h5>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Links</h5>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                    <p> 
+                        <a href="#" class="text-white" style="text-decoration: none;"> TheProviders</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning"> Contact</h5>
+                    <p> 
+                        <i class="fas fa-home mr-3"></i> New York, NY 3434, US
+                    </p>
+                    <p> 
+                        <i class="fas fa-envelope mr-3"></i> NYCKiqs@gmail.com
+                    </p>
+                    <p> 
+                        <i class="fas fa-phone mr-3"></i> +92 3453424234
+                    </p>
+                </div>
+                <hr class="mb-4">
+
+                <div class="row align-items-center">
+                    <div class="col-md-7 col-lg-8">
+                        <p> Copyright @2021 All rights reserved by: 
+                            <a href="#" style="text-decoration: none;">
+                                <strong class="text-warning"> NYCKiqs </strong>
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <div class="text-center text-md-right">
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item"> 
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li class="list-inline-item"> 
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li class="list-inline-item"> 
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-google-plus"></i></a>
+                                </li>
+                                <li class="list-inline-item"> 
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                                <li class="list-inline-item"> 
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-youtube"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src= "/js/bootstrap.bundle.min.js"> </script>
+    <script src= "/js/home.js"> </script>
+    {{!-- <script src= "/js/selling.js"> </script> --}}
+    {{!-- <script src= "/js/loginPopup.js"></script> --}}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
