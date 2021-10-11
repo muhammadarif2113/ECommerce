@@ -156,7 +156,7 @@ addtoCart.addEventListener('click', () => { //this updates cart icon with amount
 
                 <div class="sidebar-prods-info">
                     <div class="sidebar-prod-name"> ${item.name} </div> 
-                    <b>$${item.price * item.inCart}.00</b>
+                    <div id="sidebar-price"> <b> $${item.price * item.inCart}.00</b> </div> 
                     <div class="sidebar-quantity">
                         <div class="buttons-div">
                             <button class="minus-quantity-button"><i class="fas fa-minus"></i></button> 

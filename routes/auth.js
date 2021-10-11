@@ -3,7 +3,7 @@ const authController = require('../controllers/auth');
 
 const router = express.Router(); 
 
-router.post('/login.hbs', authController.login); //login function is in controllers/auth.js
+router.post('/login', authController.login); //login function is in controllers/auth.js
 
 router.post('/signin', authController.signin); //signin function is in controllers/auth.js
 

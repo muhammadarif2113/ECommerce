@@ -1,5 +1,7 @@
 const host = 'http://localhost:5026'; 
 
+// const host = 'http://nyckiqs.live';
+
 const stripe = Stripe('pk_test_51Jh56VBhk9MpEC2IBNkdJuIbFx7OqggTgPvM9hWXs7svVhI8EGpC44IKnKTd2zbvGC1j34BEVIuO4O72fptb2pa800wP2A9gMF');
 
 const checkout = document.getElementById("cart-checkout");

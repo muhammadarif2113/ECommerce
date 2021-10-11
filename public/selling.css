@@ -16,7 +16,7 @@ header{
     justify-content: center; 
     flex-wrap: wrap; 
     margin-top: 50px; 
-    padding-bottom: 100px; 
+    /* padding-bottom: 100px;  */
     
 }
 
@@ -38,6 +38,7 @@ header{
     padding-top: 0.5em;
     font-weight: bold;
     font-family: 'Verdana';
+    font-size: 16px;
 
 }
 
@@ -68,7 +69,8 @@ header{
     position: absolute;
     top: 0;
     display: block;
-    height: 72%;
+    height: 73%;
+    border-radius: 6px;
     width: 100%;
     background-color: #3e363f;
     opacity: 0;
@@ -204,7 +206,7 @@ header{
 
 .image:hover .cart1
 {
-    bottom: 82px; 
+    bottom: 75px; 
     opacity: 0.6;
     padding: 10px; 
     text-decoration: none;
@@ -283,7 +285,7 @@ h3{
 
 .sidebar{
     position: fixed; 
-    width: 40%; 
+    width: 20%; 
     height: 100%; 
     /* min-width: 30%; */
     /* max-width: 90%;  */
@@ -301,11 +303,58 @@ h3{
     clear: both;
 } */
 
-@media all and (max-width: 700px){
+/* @media all and (max-width: 700px){
     .sidebar{
         width: 70%;
     }
+} */
+
+@media all and (max-width: 1297px){
+    .sidebar{
+        width: 35%;
+    }
 }
+
+@media all and (max-width: 750px){
+    .sidebar{
+        width: 60%;
+    }
+}
+
+@media all and (max-width: 440px){
+    .sidebar{
+        width: 40%;
+    }
+    /* .subtotal-amount{
+        text-align: center;
+    } */
+    /* .sidebar-prods{
+        display: block;
+    }
+    .sidebar-prods-info{
+        display: block;
+    } */
+    .singleProd{
+        flex-wrap: wrap;
+    }
+    .sidebar-prod-name{
+        text-align: left;
+        padding-left: 20px;
+    }
+    #sidebar-price{
+        text-align: left;
+        padding-left: 20px;
+    }
+    .sidebar-quantity{
+        justify-content: left;
+        padding-left: 20px;
+    }
+    .subtotal-amount{
+        padding-left: 68px;
+    }
+}
+ 
+
 
 .sidebar--close{
     /* background: green; */
@@ -318,6 +367,10 @@ h3{
     right: 0; 
 }
 
+#hrBar{
+    /* width: 200px;  */
+    color: white;
+}
 
 
 .sidebar-cart{
@@ -360,17 +413,6 @@ h3{
 }
 
 
-.sidebar-line{
-    /* width: 100%; */
-    /* text-align: center; */
-    /* border: 3px solid green; */
-}
-
-/* .cart-subtotal{
-    text-align: right; 
-    font-family: 'Rockwell';
-} */
-
 .subTotal{
     color: black; 
     text-align: center;
@@ -382,6 +424,8 @@ h3{
     text-align: right;
     color: crimson;
     font-weight: bold;
+    /* padding-right: 20px; */
+    font-size: large;
 
 }
 
@@ -396,6 +440,7 @@ h3{
     border-style: solid;
     
 }
+
 
 .sidebar-prods{
     padding: 10px 20px 10px 20px; 

@@ -61,6 +61,90 @@ router.get("/selling", (req, res) => {
     }); 
 }); 
 
+router.get("/sellingAdidas", (req, res) => {
+    const { brand, name, size, price, quantity} = req.body; 
+    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Yeezy'], (error, results) => {
+
+        if(error){
+            console.log(error); 
+        } 
+
+        const sneakers = []; 
+
+        for(let i = 0; i<results.length; i++){
+            sneakers[i] = results[i]; 
+        }
+
+        res.render("sellingAdidas.hbs", {  //selling.hbs
+            sneakers: sneakers
+        });
+
+    }); 
+}); 
+
+router.get("/sellingJordan", (req, res) => {
+    const { brand, name, size, price, quantity} = req.body; 
+    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Jordan'], (error, results) => {
+
+        if(error){
+            console.log(error); 
+        } 
+
+        const sneakers = []; 
+
+        for(let i = 0; i<results.length; i++){
+            sneakers[i] = results[i]; 
+        }
+
+        res.render("sellingJordan.hbs", {  //selling.hbs
+            sneakers: sneakers
+        });
+
+    }); 
+}); 
+
+router.get("/sellingNike", (req, res) => {
+    const { brand, name, size, price, quantity} = req.body; 
+    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Nike'], (error, results) => {
+
+        if(error){
+            console.log(error); 
+        } 
+
+        const sneakers = []; 
+
+        for(let i = 0; i<results.length; i++){
+            sneakers[i] = results[i]; 
+        }
+
+        res.render("sellingNike.hbs", {  //selling.hbs
+            sneakers: sneakers
+        });
+
+    }); 
+});
+
+router.get("/sellingDesigner", (req, res) => {
+    const { brand, name, size, price, quantity} = req.body; 
+    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Balenciaga'], (error, results) => {
+
+        if(error){
+            console.log(error); 
+        } 
+
+        const sneakers = []; 
+
+        for(let i = 0; i<results.length; i++){
+            sneakers[i] = results[i]; 
+        }
+
+        res.render("sellingDesigner.hbs", {  //selling.hbs
+            sneakers: sneakers
+        });
+
+    }); 
+});
+
 // router.get("/signin", (req, res) => {
 //     res.render("login"); 
 // }); 
