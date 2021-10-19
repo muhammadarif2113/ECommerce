@@ -10,8 +10,10 @@ button.addEventListener('click', () => {
 
 close.addEventListener('click', () => {
     popup.style.display = 'none'; 
-    window.location.href = "/"; 
+    window.history.back(); 
 }); 
+
+
 
 // popup.addEventListener('click', () => {
 //     popup.style.display = 'none';

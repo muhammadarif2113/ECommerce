@@ -1,4 +1,4 @@
-const host = 'http://localhost:5026'; 
+const host = 'http://localhost:5035'; 
 
 // const host = 'http://nyckiqs.live';
 
@@ -19,6 +19,7 @@ function myProducts(){
     for (const property in getProducts){
         products.push({
             name: getProducts[property].name,
+            size: getProducts[property].size,
             tag: getProducts[property].tag, 
             price: getProducts[property].price,
             inCart: getProducts[property].inCart,
@@ -43,6 +44,8 @@ async function buyProducts(cartProducts){
         })
 
         console.log(response.data); 
+
+        localStorage.setItem('sessionId', response.data.session.id);
 
         await stripe.redirectToCheckout({
             sessionId: response.data.session.id

@@ -14,14 +14,32 @@ const condition = document.querySelector('.detail__condition');
 
 const productImg = document.querySelector('.product_img').getAttribute('src');
 
-
 const modalRight = document.querySelector(".modal__right"); 
 
 const sideBar = document.querySelector(".sidebar"); 
 
-var sidebarProducts = document.querySelector(".sidebar-sneakers ul"); //cart-content
+var sidebarProducts = document.querySelector(".sidebar-sneaker ul"); //cart-content
 
 const toggleButton1 = document.querySelector(".navbar-toggler"); 
+
+var nav = document.querySelector('nav'); 
+
+
+const nav1 = document.querySelector(".navbar-nav");
+
+const nav2 = document.querySelector("nav");
+
+// const logoContainer = document.querySelector(".logo-container"); 
+
+// const dropdown = document.querySelector(".dropdown"); 
+const icon = document.querySelector(".icons"); 
+
+
+// console.log(icon); 
+
+
+
+
 
 
 
@@ -34,15 +52,33 @@ const toggleButton1 = document.querySelector(".navbar-toggler");
 
 function show(){
     // const toggleButton = document.querySelector(".navbar-toggler"); 
+
+
     const temp = document.querySelector(".sidebar").classList.toggle('active'); 
     if(temp){
+        // console.log('sidebar is active');
+        modal.classList.add('modal--bg');
+        nav2.style.zIndex = 1; 
+        nav.style.height = "50px"; 
+            if(toggleButton1.getAttribute("aria-expanded")){
+                nav1.style.visibility = "hidden"; 
+                icon.style.visibility = "hidden"; 
+
+            
+        }
         toggleButton1.style.visibility = "hidden"; 
     } else {
+        modal.classList.remove('modal--bg');
+        nav.style.height = null; 
+        nav2.style.zIndex = 1; 
+        nav1.style.visibility = "visible"; 
+        icon.style.visibility = "visible"; 
         toggleButton1.style.visibility = "visible";
     }
 
-}
 
+
+}
 
 productList.forEach((list, index) => {
     const view = list.querySelector('.add-cart');
@@ -54,11 +90,12 @@ productList.forEach((list, index) => {
     const condition1 = list.querySelector('.prod-condition').innerHTML; 
 
 
+
     view.addEventListener('click', () => {
         modal.classList.add('modal--bg');
         modalContent.classList.add('modal__content--show');
         modalImg.setAttribute('src', productImg);
-        title.textContent = name; 
+        title.textContent = name;
         cost.textContent = price;
         size.textContent = size1; 
         category.textContent = category1; 
@@ -76,8 +113,14 @@ close.addEventListener('click', () => {
 modal.addEventListener('click', () => {
     modal.classList.remove('modal--bg');
     modalContent.classList.remove('modal__content--show');
+    nav1.style.visibility = "visible"; 
+    // logoContainer.style.visibility = "visible"; 
+    // dropdown.style.visibility = "visible"; 
+        icon.style.visibility = "visible"; 
 
     toggleButton1.style.visibility = "visible"; 
+
+    nav.style.height = null; 
 
 
     var sidebar = document.querySelector(".sidebar")
@@ -97,6 +140,8 @@ function productFormatter(){ //to store our products as object when in cart
     let tag = title.textContent.toLowerCase(); 
     tag = tag.replace(/ /g, ''); 
 
+    // let size2 = size.textContent; 
+    // size2 = tag.replace
 
     const products = 
         {
@@ -104,7 +149,8 @@ function productFormatter(){ //to store our products as object when in cart
             tag: tag, 
             price: price1,  
             inCart: 0, 
-            image: productImg
+            image: productImg,
+            size: size.textContent
     
         }
     
@@ -131,8 +177,8 @@ addtoCart.addEventListener('click', () => { //this updates cart icon with amount
 
 }); 
  function addtoSlider(){
-    const sidebarProducts = document.querySelector(".sidebar-sneakers"); //cart-content
-    const textSide = document.querySelector(".sidebar-sneakers-info"); 
+    const sidebarProducts = document.querySelector(".sidebar-sneaker"); //cart-content
+    const textSide = document.querySelector(".sidebar-sneaker-info"); 
 
     // console.log(textSide); 
 
@@ -151,7 +197,7 @@ addtoCart.addEventListener('click', () => { //this updates cart icon with amount
             `
             <div class="singleProd">
                 <div class= "sidebar-prods">
-                    <img class="sidebar-products"src= /images/sneakers/${item.tag}.jpg width="100" height="90"<img> 
+                    <img class="sidebar-products"src= /images/sneaker/${item.tag}.jpg width="100" height="90"<img> 
                 </div>
 
                 <div class="sidebar-prods-info">
@@ -272,7 +318,7 @@ function manageQuantity(){
             currentQuantity = document.querySelector('.root'); 
             currentProduct = increaseButtons[i].parentElement.parentElement.parentElement.querySelector(".sidebar-prod-name").textContent.toLowerCase(); 
             currentProduct = currentProduct.replace(/ /g, '');
-            console.log(currentProduct); 
+            // console.log(currentProduct); 
              
             cartItems[currentProduct].inCart += 1; 
             cartNumbers(cartItems[currentProduct]);
@@ -298,7 +344,7 @@ function loadSubtotal(){
 
 window.onload = function(){
     var sub = document.querySelector(".subtotal-amount"); 
-    var sidebarProducts = document.querySelector(".sidebar-sneakers"); //cart-content
+    var sidebarProducts = document.querySelector(".sidebar-sneaker"); //cart-content
 
     if(isNaN(sub.textContent)){
         sub.textContent = 0; 

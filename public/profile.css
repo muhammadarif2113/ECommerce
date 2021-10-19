@@ -1,0 +1,74 @@
+/* body{
+    height: 100%;
+} */
+
+/* .banner-image{
+    background-image: url('/images/nyc.jpg'); 
+    background-size: cover;
+} */
+
+html, body{
+    height: 100%;
+    /* overflow: hidden; */
+    overscroll-behavior-y: none; 
+
+ }
+
+.avatar{
+    /* top: -250px; 
+    right: 300px;
+    width: 75%; 
+    max-width: 100%;
+    position: relative; */
+    width: 75%; 
+    border-bottom: 1px solid rgba(0,0,0,0.50); 
+ }
+
+.container-profile{
+    width: 90%;
+    height: 1200px; 
+    padding-top: 200px;
+    position: relative;
+    /* bottom: 580px; */
+    /* position: absolute;  */
+    /* display: grid; */
+  
+ 
+ }
+
+ #profile-card{
+    /* position: absolute; */
+    width: 30%;
+    height: 50%;
+    margin-right: 1%;
+    float: left;
+ }
+
+ #user-email{
+ }
+
+ #profile-desc{
+    width: 65%;
+    float: right;
+    /* flex-wrap: wrap; */
+ }
+
+ .avatar-ctn{
+    background-color: navy; 
+    text-align: center;
+ }
+
+ .accordion{
+     width: 65%;
+     float: right;
+     margin-top: 30px;
+     max-height: 400px;
+ }
+
+
+/* @media all and (max-width: 460px){
+    .accordion{
+        overflow-y: auto;
+    }
+    
+ } */

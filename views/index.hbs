@@ -21,7 +21,7 @@
         
         
         <div class="container">
-            <a href="#" class="navbar-brand">
+            {{!-- <a href="#" class="navbar-brand"> --}}
                  {{!-- <img src="/images/logo.PNG">  --}}
             </a>
             <button
@@ -52,7 +52,7 @@
                         <a href="/sellingNike" class="nav-link text-white">Nike</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/sellingDesigner" class="nav-link text-white">Designer</a>
+                        <a href="/sellingDesigner" class="nav-link text-white">Other</a>
                     </li>
                 </ul>
             </div>
@@ -67,7 +67,7 @@
         {{else}}
             <div class="icons">
                 <a href="/profile"><ion-icon name="person-sharp" class="person-icon" color="danger"></ion-icon></a>
-                <a href="#"> <ion-icon class="shopping" name="cart-outline" color="danger" onclick="show()"></ion-icon></a><span class="cart-number">0</span>
+                <a href="/selling"> <ion-icon class="shopping" name="cart-outline" color="danger"></ion-icon></a><span class="cart-number">0</span>
             </div>
         {{/if}}
     </nav>
@@ -125,7 +125,7 @@
                 <div class="row align-items-center mt-5">
                     <hr class="mt-5">
                     <div class="col-md-7 col-lg-8">
-                        <p> Copyright @2021 All rights reserved by: 
+                        <p id="copyright"> Copyright @2021 All rights reserved by: 
                             <a href="#" style="text-decoration: none;">
                                 <strong class="text-warning"> NYCKiqs </strong>
                             </a>
@@ -135,19 +135,16 @@
                         <div class="text-center text-md-right">
                             <ul class="list-unstyled list-inline">
                                 <li class="list-inline-item"> 
-                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-facebook"></i></a>
+                                    <a href="https://www.facebook.com/" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-facebook"></i></a>
                                 </li>
                                 <li class="list-inline-item"> 
-                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-twitter"></i></a>
+                                    <a href="https://twitter.com/" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-twitter"></i></a>
                                 </li>
                                 <li class="list-inline-item"> 
-                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-google-plus"></i></a>
+                                    <a href="https://www.google.com/" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-google-plus"></i></a>
                                 </li>
                                 <li class="list-inline-item"> 
-                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-linkedin-in"></i></a>
-                                </li>
-                                <li class="list-inline-item"> 
-                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.youtube.com/" class="btn-floating btn-sm text-white" style="font-size: 23px;"> <i class="fab fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>

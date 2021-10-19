@@ -48,14 +48,14 @@ router.get("/selling", (req, res) => {
             console.log(error); 
         } 
 
-        const sneakers = []; 
+        const sneaker = []; 
 
         for(let i = 0; i<results.length; i++){
-            sneakers[i] = results[i]; 
+            sneaker[i] = results[i]; 
         }
 
         res.render("selling.hbs", {  //selling.hbs
-            sneakers: sneakers
+            sneaker: sneaker
         });
 
     }); 
@@ -63,20 +63,20 @@ router.get("/selling", (req, res) => {
 
 router.get("/sellingAdidas", (req, res) => {
     const { brand, name, size, price, quantity} = req.body; 
-    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Yeezy'], (error, results) => {
+    db.query('SELECT * FROM Products WHERE brand LIKE ? OR brand LIKE ? ORDER BY name ASC', ['Yeezy', 'Adidas'], (error, results) => {
 
         if(error){
             console.log(error); 
         } 
 
-        const sneakers = []; 
+        const sneaker = []; 
 
         for(let i = 0; i<results.length; i++){
-            sneakers[i] = results[i]; 
+            sneaker[i] = results[i]; 
         }
 
         res.render("sellingAdidas.hbs", {  //selling.hbs
-            sneakers: sneakers
+            sneaker: sneaker
         });
 
     }); 
@@ -84,20 +84,20 @@ router.get("/sellingAdidas", (req, res) => {
 
 router.get("/sellingJordan", (req, res) => {
     const { brand, name, size, price, quantity} = req.body; 
-    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Jordan'], (error, results) => {
+    db.query('SELECT * FROM Products WHERE brand LIKE ? ORDER BY name ASC', ['Jordan'], (error, results) => {
 
         if(error){
             console.log(error); 
         } 
 
-        const sneakers = []; 
+        const sneaker = []; 
 
         for(let i = 0; i<results.length; i++){
-            sneakers[i] = results[i]; 
+            sneaker[i] = results[i]; 
         }
 
         res.render("sellingJordan.hbs", {  //selling.hbs
-            sneakers: sneakers
+            sneaker: sneaker
         });
 
     }); 
@@ -105,20 +105,20 @@ router.get("/sellingJordan", (req, res) => {
 
 router.get("/sellingNike", (req, res) => {
     const { brand, name, size, price, quantity} = req.body; 
-    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Nike'], (error, results) => {
+    db.query('SELECT * FROM Products WHERE brand LIKE ? ORDER BY name ASC', ['Nike'], (error, results) => {
 
         if(error){
             console.log(error); 
         } 
 
-        const sneakers = []; 
+        const sneaker = []; 
 
         for(let i = 0; i<results.length; i++){
-            sneakers[i] = results[i]; 
+            sneaker[i] = results[i]; 
         }
 
         res.render("sellingNike.hbs", {  //selling.hbs
-            sneakers: sneakers
+            sneaker: sneaker
         });
 
     }); 
@@ -126,22 +126,21 @@ router.get("/sellingNike", (req, res) => {
 
 router.get("/sellingDesigner", (req, res) => {
     const { brand, name, size, price, quantity} = req.body; 
-    db.query('SELECT * FROM Products WHERE brand LIKE ?', ['Balenciaga'], (error, results) => {
+    db.query('SELECT * FROM Products WHERE brand LIKE ? OR brand LIKE ? OR brand LIKE ? OR brand LIKE ? OR brand LIKE ? OR brand LIKE ? ORDER BY name ASC', ['Balenciaga', 'Off-White', 'Christian Louboutin', 'CDG', 'Converse', 'Bape'], (error, results) => {
 
         if(error){
             console.log(error); 
         } 
 
-        const sneakers = []; 
+        const sneaker = []; 
 
         for(let i = 0; i<results.length; i++){
-            sneakers[i] = results[i]; 
+            sneaker[i] = results[i]; 
         }
 
         res.render("sellingDesigner.hbs", {  //selling.hbs
-            sneakers: sneakers
+            sneaker: sneaker
         });
-
     }); 
 });
 

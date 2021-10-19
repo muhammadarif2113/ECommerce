@@ -16,6 +16,7 @@ var second = document.querySelector("#second-form-number");
 
 var sub = document.querySelector("#subscribe-button"); 
 
+
 check1.addEventListener('click', function(){
     document.querySelector("#first-form-email").classList.toggle('active'); 
     if(!second.classList.contains('active')){
@@ -41,7 +42,6 @@ window.addEventListener('scroll', function(){ //change color of nav when scrolli
 
 toggleButton.addEventListener('click', function(){
     if(window.matchMedia("(min-width: 553px)").matches){
-        console.log('toggggle');
         navBar.style.padding += "0px 0px 30px 0px"; 
 
         shopping.style.margin = "30px 0px 0px 0px";
@@ -67,4 +67,6 @@ toggleButton.addEventListener('click', function(){
 
     }
 })
+
+
 
