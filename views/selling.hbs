@@ -83,22 +83,30 @@
 
     
         <div class="container-selling">
-            {{#each sneaker}}
-                <div class="image">
-                    <div class="prod-image">
-                        <img class= "product_img" src="{{this.image}}" width="300" height="200" alt="">
+            {{#each sneaker}} 
+                
+                    <div class="image">
+                        <div class="prod-image">
+                            <img class= "product_img" src="{{this.image}}" width="300" height="200" alt="">
+                        </div>
+                        <h5 class="prod-name">{{this.name}}</h5>
+                        <h6 class="prod-category" hidden>({{this.category}})</h6>
+                    {{#if this.isUsed}}
+                        <h6 class="prod-condition" hidden>Condition: Pre-Owned</h6>
+                    {{else}}
+                        <h6 class="prod-condition" hidden>Condition: New</h6>
+                    {{/if}}
+                        <h6 class="prod-size" hidden>Size: {{this.size}} </h6>
+                    
+                        <h6 class="prod-price">${{this.price}}.00</h6>
+                    
+                        <a class="add-cart cart1">Quick View</a>
                     </div>
-                    <h5 class="prod-name">{{this.name}}</h5>
-                    <h6 class="prod-category" hidden>({{this.category}})</h6>
-            {{#if this.isUsed}}
-                    <h6 class="prod-condition" hidden>Condition: Pre-Owned</h6>
-            {{else}}
-                    <h6 class="prod-condition" hidden>Condition: New</h6>
-            {{/if}}
-                    <h6 class="prod-size" hidden>Size: {{this.size}} </h6>
-                    <h6 class="prod-price">${{this.price}}.00</h6>
-                    <a class="add-cart cart1">Quick View</a>
-                </div>
+                {{!-- {{#equal @index}}
+                    {{break}}
+
+                {{/equal}} --}}
+
             {{/each}}
 
             {{!-- Quickview Popup --}}
@@ -232,7 +240,6 @@
     <script src= "/js/home.js"> </script>
     <script src= "/js/selling.js"> </script>
     <script src= "/js/payment.js"> </script>
-    {{!-- <script src= "/js/loginPopup.js"></script> --}}
     
 </body>
 </html>

@@ -19,7 +19,7 @@
             <a href="/" id="home-link"> <h1 class="nav-logo">NYC<span>KIQS</span></h1></a>
             
             <div class="container">
-                <a href="#" class="navbar-brand">
+                {{!-- <a href="#" class="navbar-brand"> --}}
                     {{!-- <img src="/images/logo.PNG">  --}}
                 </a>
                 <button
@@ -55,69 +55,22 @@
                     </ul>
                 </div>
             </div>
-            {{#if user }}
+            {{!-- {{#if user }} --}}
                 <div class="dropdown">
-                    <a href="/profile"><ion-icon name="person-sharp" class="person-icon" color="danger" style="margin-right: 20px;"></ion-icon></a>
+                    <ion-icon name="person-sharp" class="person-icon" id="person-icon1" color="danger"></ion-icon>
                     <div class="dropdown-content">
                         <a href="/auth/logout">Log out</a>
                     </div>
-                    {{!-- <a href="#"> <ion-icon class="shopping" name="cart-outline" color="danger" onclick="show()"></ion-icon></a><span class="cart-number">0</span> --}}
+                    <a href="/selling"> <ion-icon class="shopping" name="cart-outline" color="danger" hidden></ion-icon></a><span class="cart-number" hidden>0</span>
 
                 </div>
-            {{else}}
+            {{!-- {{else}}
                 <div class="icons">
-                    <a href="/profile"><ion-icon name="person-sharp" class="person-icon" color="danger" style="margin-right: 20px;"></ion-icon></a>
-                    {{!-- <a href="#"> <ion-icon class="shopping" name="cart-outline" color="danger" onclick="show()"></ion-icon></a><span class="cart-number">0</span> --}}
-                </div>
-            {{/if}}
+                    <a href="/profile"><ion-icon name="person-sharp" class="person-icon" color="danger"></ion-icon></a>
+                    <a href="/selling"> <ion-icon class="shopping" name="cart-outline" color="danger"></ion-icon></a><span class="cart-number" hidden>0</span>
+                </div> --}}
+            {{!-- {{/if}} --}}
         </nav>
-
-
-
-
-    <!-- Banner Image -->
-    {{!-- <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-        <div class="content text-center">
-            <img src="/images/male.png" class="avatar" alt="user profile picture"> 
-        </div>
-    </div>  --}}
-
-     {{!-- <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
-        <div class="container-profile mt-4">
-                <div class="col-4" id="profile-card">
-                    <div class="card">
-                        <div class="avatar-ctn">
-                            <img src="/images/male.png" class="avatar" alt="user profile picture">
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{user.name}}</h5>
-                            <p class="card-text">BLAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHSDJKDSFFBSDFGDFKGJFDDFJGBFKGJBDFKGJBFDGBDFBJNKG</p>
-                            <a href="#" class="btn btn-primary">{{user.email}}</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-8" id="profile-desc">
-                    <div class="card text-center">
-                        <div class="card-header">
-                            Profile Page
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Hey {{user.name}}, welcome back!</h5>
-                            <p class="card-text">
-                                This is your profile page where you can add all the information about your self!
-                            </p>
-                            <a href="#" class="btn btn-primary">Go Somewhere</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            
-                        </div>
-                    </div>
-                </div>
-        </div>
-    </div> --}}
-
-
 
 
     <div class="banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
@@ -128,10 +81,12 @@
                             <img src="/images/male.png" class="avatar" alt="user profile picture">
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title">{{user.name}}</h5>
+                            <h5 class="card-title">Hey <span id="user-name">{{user.name}}</span>, welcome back!</h5>
                             {{!-- <p class="card-text">Email on file: </p> --}}
                             <span>Email on file: </span>
-                            <span class="btn btn-primary" id="user-email">{{user.email}}</span>
+                            <span class="btn btn-light" id="user-email">{{user.email}}</span> <br> 
+                            <a href="/auth/logout" class="btn btn-primary" id="sign-out">Sign out</a>
+
                         </div>
                     </div>
                 {{!-- </div> --}}
@@ -139,72 +94,39 @@
                 {{!-- <div class="col-8" id="profile-desc"> --}}
                     <div class="card text-center" id="profile-desc">
                         <div class="card-header">
-                            Profile Page
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Hey {{user.name}}, welcome back!</h5>
-                            <p class="card-text">
-                                This is your profile page where you can add all the information about your self!
-                            </p>
-                            <a href="#" class="btn btn-primary">Go Somewhere</a>
+                        <div class="card-body" id="title-card">
+                            Order History
                         </div>
                         <div class="card-footer text-muted">
-                            Profile
+                            
                         </div>
                     </div>
 
                 {{!-- </div> --}}
-
+                {{#each orders}} 
+                {{!-- <div class="scroll-orders"> --}}
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Order #1
+                                    Order Placed @ {{this.time}}
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    <div class="products-ordered">
+                                        {{this.products}}
+                                    </div>
+                                    
+                                    Total Items: {{this.totalQuantity}} ------------- <strong>${{this.total}}.00 </strong><br> <br>
+                                    Ship to: {{this.name}} <br> {{this.city}}, {{this.state}} {{this.country}} <br>{{this.street}} {{this.zip}}
                                 </div>
                             </div>
                         </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Order #2
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
                     </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Order #3
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
+                {{!-- </div> --}}
+            {{/each}}
         </div>
     </div>
 
@@ -253,7 +175,7 @@
                     <hr class="mt-5">
                     <div class="col-md-7 col-lg-8">
                         <p id="copyright"> Copyright @2021 All rights reserved by: 
-                            <a href="#" style="text-decoration: none;">
+                            <a href="/" style="text-decoration: none;">
                                 <strong class="text-warning"> NYCKiqs </strong>
                             </a>
                         </p>
@@ -287,6 +209,8 @@
 
     <script src= "/js/bootstrap.bundle.min.js"> </script>
     <script src= "/js/home.js"> </script>
+    <script src= "/js/profile.js"> </script>
+
     {{!-- <script src= "/js/loginPopup.js"></script> --}}
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

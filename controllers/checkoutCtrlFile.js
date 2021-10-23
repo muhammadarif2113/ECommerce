@@ -79,35 +79,46 @@ exports.finishOrder = async (req, res) => {
         const country = session.shipping.address.country
         const street = session.shipping.address.line1
         const zip = session.shipping.address.postal_code 
+        const shippingCustomer = session.customer
+
  
  
-        let shippingQuery = `INSERT INTO Address(email, name, city, state, country, street, zip)
-        VALUES("${email}","${name}", "${city}", "${state}", "${country}","${street}", "${zip}" )`;
+        let shippingQuery = `INSERT INTO Address(shipping, email, name, city, state, country, street, zip)
+        VALUES("${shippingCustomer}","${email}","${name}", "${city}", "${state}", "${country}","${street}", "${zip}" )`;
         db.query(shippingQuery); 
         
         
         
         const id = session.id; 
         const totalAmount = session.amount_total / 100
-        const shippingCustomer = session.customer
+        // const shippingCustomer = session.customer
 
         var data = session.line_items.data; 
         var totalQuantity =0; 
-
+        
         var boughtProducts = [];
-
         for(let i =0; i < session.line_items.data.length; i++){
              totalQuantity += data[i].quantity
+            
+            //  var totalQuantity2 = totalQuantity.toString(); 
 
+            //  console.log(totalQuantity2); 
+//session.line_items.data[i].quantity
     
-            boughtProducts.push({
-                name: session.line_items.data[i].price.product.name,
-                description: session.line_items.data[i].description,
-                quantity: session.line_items.data[i].quantity
-            })
+            boughtProducts.push(
+                
+                    {
+
+                        name:  session.line_items.data[i].price.product.name,
+                        description: session.line_items.data[i].description,
+                        quantity: session.line_items.data[i].quantity
+                    }
+                )
         }
+        // console.log(typeof(boughtProducts)); 
 
         boughtProducts = JSON.stringify(boughtProducts).replace(/"/g, ""); 
+        console.log(typeof(boughtProducts)); 
         console.log(boughtProducts); 
 
 

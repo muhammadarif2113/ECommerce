@@ -63,7 +63,7 @@ exports.signin = async (req, res) => {
 exports.login = (req, res) => { //when clicked sign up, this will happen: 
     //console.log(req.body);     
 
-    const { name, email, password, passwordConfirm } = req.body; 
+    const { name, email, password, passwordConfirm} = req.body; 
 
     db.query('SELECT email FROM Users WHERE email = ?', [email], async (error, results) => { //to avoid sql injections
         if(error){

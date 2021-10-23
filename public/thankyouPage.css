@@ -1,4 +1,4 @@
-html, body{
+body{
    height: 100%;
    /* overflow: hidden; */
    overscroll-behavior-y: none; 
@@ -8,6 +8,8 @@ html, body{
 .content{
     width: 70%;
     height: 20%;
+    min-height: 304px;
+    border: 2px solid white; 
 }
 
 .checkoutSuccessCtn{
@@ -47,6 +49,7 @@ html, body{
  .person-icon{
     font-size: 20px;
     vertical-align: middle;
+    margin-top: 3px;
  
  }
  
@@ -63,16 +66,20 @@ html, body{
  @media all and (max-width: 575px){
  
     .navbar{
-       padding-bottom: 25px;
+       padding-bottom: 35px;
     }
     .shopping{
        position: absolute;
        right: 25px;
        padding-right: 3px;
+       padding-top: 10px;
+
     }
     .cart-number{
        position: absolute;
        right: 10px; 
+       padding-top: 10px;
+
        /* padding-top: -2px; */
        /* padding-bottom: 5px; */
  
@@ -82,6 +89,8 @@ html, body{
     .person-icon{
        position: absolute;
        left: 5px; 
+       padding-top: 10px;
+
     }
  }
 
@@ -95,6 +104,12 @@ html, body{
     }
  }
 
+ @media all and (max-height: 1045px){
+    .content{
+       height: 29%; 
+    }
+ }
+
  
  
  .icons{
@@ -105,7 +120,7 @@ html, body{
  .cart-number{
     color: white;
     padding-left: 0.5em;
-    margin-top: 2px;
+    /* margin-top: 2px; */
  
  }
  

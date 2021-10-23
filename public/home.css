@@ -1,22 +1,14 @@
-/* .nav ul {
-    list-style: none;
-    text-align: center;
- }
- 
- .nav ul li {
-    display: inline-block;
- } */
 
- /* nav{
-    z-index: 1;
- } */
-
- html, body{
+ body{
     height: 100%;
     /* overflow: hidden; */
     overscroll-behavior-y: none; 
 
  }
+
+ /* .navBar{
+    padding-bottom: 30px;
+ } */
 
  .nav-logo{
    color: #DAF9FA; 
@@ -45,39 +37,50 @@ h1 span{
 
 }
 
+
 .shopping{ 
    font-size: 24px;
    vertical-align: middle;
    padding-left: 2em;
    cursor: pointer;
    text-align: center;
-   /* padding-top: 10px; */
 }
 
 
 @media all and (max-width: 575px){
 
    .navbar{
-      padding-bottom: 25px;
+      padding-bottom: 35px;
    }
    .shopping{
       position: absolute;
       right: 25px;
       padding-right: 3px;
+      padding-top: 10px;
+
    }
    .cart-number{
       position: absolute;
       right: 10px; 
-      /* padding-top: -2px; */
+      padding-top: 10px;
+
       /* padding-bottom: 5px; */
 
-
-      
    }
+
+   /* #person-icon1{
+      position: absolute;
+      right: 20px; 
+   } */
+   
    .person-icon{
       position: absolute;
       left: 5px; 
+      padding-top: 10px;
    }
+
+   
+
 }
 
 
@@ -89,7 +92,7 @@ h1 span{
 .cart-number{
    color: white;
    padding-left: 0.5em;
-   margin-top: 2px;
+   /* margin-top: 2px; */
 
 }
 
@@ -98,30 +101,6 @@ h1 span{
     background-size: cover;
 }
 
-/* .container-profile{
-   bottom: 580px;
-   position: absolute; 
-
-} */
-/* .avatar-ctn{
-   background-color: navy; 
-   text-align: center;
-} */
-
-/*.avatar{ 
-   /* top: -250px; 
-   right: 300px;
-   width: 75%; 
-   max-width: 100%;
-   position: relative; */
-   /* width: 75%;  */
-   /* border-bottom: 1px solid rgba(0,0,0,0.50);  */
-/* }
-
-/* .navbarNav{
-   position: relative;
-   left: 500px;
-} */
  .navbar-nav {
     float:none;
     margin:0 auto;
@@ -155,13 +134,6 @@ footer {
     
 }
 
-/* #copyright{
-   visibility: visible;
-} */
-
-/* footer:hover{
-   opacity: 0.9; 
-} */
 
 @media all and (max-width: 243px){
 
@@ -205,26 +177,6 @@ footer {
 
 }
 
-
-/* .form-box{
-   margin: 0 auto;
-   flex-wrap: wrap;
-
-}
-
-#form-email{
-   width: 50%;
-}
-
-#form-number{
-   width: 50%;
-} */
-/* @media all and (max-width: 900px){
-   .person-icon{
-       position: relative;
-       left: 10px;
-   }
-} */
 .navbar-toggler{
    position: fixed;
    right: 7px;

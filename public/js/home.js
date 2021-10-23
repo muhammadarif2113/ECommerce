@@ -8,6 +8,7 @@ const cartNumber = document.querySelector(".cart-number");
 const person = document.querySelector(".person-icon"); 
 
 
+
 const check1 = document.querySelector("#defaultCheck1"); 
 const check2 = document.querySelector("#defaultCheck2"); 
 
@@ -47,23 +48,32 @@ toggleButton.addEventListener('click', function(){
         shopping.style.margin = "30px 0px 0px 0px";
         cartNumber.style.margin = "30px 0px 0px 0px"; 
         person.style.margin = "30px 0px 0px 0px"; 
+
     }
     if(toggleButton.classList.contains("collapsed")){
         shopping.style.margin = null;
         cartNumber.style.margin = null;
         person.style.margin = null;
+
     }
     if(toggleButton.classList.contains("navbar-toggler") && (window.matchMedia("(max-width: 553px)").matches)){
-        shopping.style.margin = "30px 0px 0px 0px";
-        cartNumber.style.margin = "30px 0px 0px 0px"; 
-        person.style.margin = "30px 0px 0px 0px";
+        shopping.style.margin = "40px 0px 0px 0px";
+        cartNumber.style.margin = "40px 0px 0px 0px"; 
+        person.style.margin = "40px 0px 0px 0px";
+
 
 
         if(toggleButton.classList.contains("collapsed")){
             shopping.style.margin = null;
             cartNumber.style.margin = null; 
             person.style.margin = null;
+
         }
+
+    } else {
+        shopping.style.margin = "30px 0px 0px 0px";
+        cartNumber.style.margin = "30px 0px 0px 0px"; 
+        person.style.margin = "30px 0px 0px 0px";
 
     }
 })

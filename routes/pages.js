@@ -30,10 +30,25 @@ router.get("/login", (req, res) => {
 router.get("/profile", authController.isLoggedIn, (req, res) => {
     console.log(req.user); 
 
+
     if(req.user){
-        res.render('profile.hbs', {
-            user: req.user //to get user's name in their profile page
-        }); 
+
+        db.query('SELECT * FROM Orders, Address WHERE Orders.email LIKE ? AND Orders.shipping LIKE Address.shipping', [req.user.email], (error, results) => {
+            if(error){
+                console.log(error); 
+            }
+
+            res.render('profile.hbs', {
+                user: req.user,
+                orders: results 
+            }); 
+        })
+
+        
+
+        // res.render('profile.hbs', {
+        //     user: req.user //to get user's name in their profile page
+        // }); 
     } else {
         res.redirect('/login'); 
     }

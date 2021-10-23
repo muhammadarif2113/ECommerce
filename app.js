@@ -4,6 +4,10 @@ const mysql = require("mysql");
 const app = express(); //to start server with app.js 
 const dotenv = require('dotenv'); 
 const cookieParser = require('cookie-parser'); 
+const hbs = require('hbs'); 
+const favicon = require('serve-favicon'); 
+
+// const exphbs = require('express-handlebars'); 
 
 // const db = require('./db'); 
 
@@ -18,7 +22,10 @@ const db = mysql.createConnection({
 }); 
 
 const publicDirectory = path.join(__dirname, './public') //setting CSS and JS 
+
 app.use(express.static(publicDirectory)); 
+
+app.use(favicon(path.join(__dirname, './public/images/favicon.ico')));
 
 
 app.use(express.urlencoded({ extended: false })); //Parse URL-encoded bodies (as sent by HTML forms)
@@ -26,7 +33,13 @@ app.use(express.json()); //Parse JSON bodies (as sent by API clients)
 app.use(cookieParser()); //to set up cookies to use in browser
 
 app.set('view engine', 'hbs'); //setting handlebars as viewing format
-// app.set('view engine', 'ejs'); 
+
+// hbs.registerHelper('equal', function(arg1){
+//     if(arg1 == 20){
+//         return;
+//     }
+// }); 
+
 
 db.connect( (error) => { //in case there is an error in connecting to database
     if(error){
@@ -39,7 +52,7 @@ db.connect( (error) => { //in case there is an error in connecting to database
 //Define Routes 
 app.use('/', require('./routes/pages')); //require the routes in pages.js to register new user
 app.use('/auth', require('./routes/auth')); //redirects to routes/auth.js
-app.use('/products', require('./routes/products')); 
+// app.use('/products', require('./routes/products')); 
 app.use('/checkout', require('./routes/checkout')); 
 
 
@@ -72,7 +85,7 @@ app.get('/createproducts', (req, res) => {
 }); 
 
 app.get('/createorders', (req, res) => {
-    let sql = 'CREATE TABLE IF NOT EXISTS Orders (id VARCHAR(255) CHARACTER SET utf8,  email VARCHAR(100), name VARCHAR(100), products VARCHAR(500), totalQuantity INT, time DATETIME, total INT,  shipping VARCHAR(255) )'; 
+    let sql = 'CREATE TABLE IF NOT EXISTS Orders (id VARCHAR(255) CHARACTER SET utf8,  email VARCHAR(100), name VARCHAR(100), products VARCHAR(255), totalQuantity INT, time DATETIME, total INT,  shipping VARCHAR(255) )'; 
     db.query(sql, (err, result) => {
         if(err) throw err; 
         console.log(result); 
@@ -81,7 +94,7 @@ app.get('/createorders', (req, res) => {
 }); 
 
 app.get('/createaddress', (req, res) => {
-    let sql = 'CREATE TABLE IF NOT EXISTS Address (email VARCHAR(100), name VARCHAR(100), city VARCHAR(100), state CHAR(2), country VARCHAR(25), street VARCHAR(255), zip INT)'; 
+    let sql = 'CREATE TABLE IF NOT EXISTS Address (shipping VARCHAR(255), email VARCHAR(100), name VARCHAR(100), city VARCHAR(100), state CHAR(2), country VARCHAR(25), street VARCHAR(255), zip INT)'; 
     db.query(sql, (err, result) => {
         if(err) throw err; 
         console.log(result); 
@@ -233,7 +246,7 @@ app.get('/insertproducts', (req, res) => {
 
 
 app.get('/deleteinventory', (req, res) => {
-    let sql = 'DROP table Products'; 
+    let sql = 'DROP table Address'; 
     db.query(sql, (err, result) => {
         if(err) throw err; 
         console.log('table deleted'); 
