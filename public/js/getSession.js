@@ -1,6 +1,6 @@
-const host = 'http://localhost:5035'; 
+//const host = 'http://localhost:5035'; 
 
-// const host = 'http://nyckiqs.live';
+ const host = 'http://nyckiqs.live';
 
 const localStorageSession = localStorage.getItem('sessionId'); 
 

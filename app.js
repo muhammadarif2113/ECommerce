@@ -255,6 +255,6 @@ app.get('/deleteinventory', (req, res) => {
 }); 
 
 
-app.listen(5035, () => {
+app.listen(80, () => {
     console.log("server started on port 5023"); 
 })

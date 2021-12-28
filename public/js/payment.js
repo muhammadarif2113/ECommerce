@@ -1,6 +1,6 @@
-const host = 'http://localhost:5035'; 
+//const host = 'http://localhost:5035'; 
 
-// const host = 'http://nyckiqs.live';
+ const host = 'http://nyckiqs.live';
 
 const stripe = Stripe('pk_test_51Jh56VBhk9MpEC2IBNkdJuIbFx7OqggTgPvM9hWXs7svVhI8EGpC44IKnKTd2zbvGC1j34BEVIuO4O72fptb2pa800wP2A9gMF');
 
