@@ -1,27 +1,28 @@
 const nodemailer = require('nodemailer'); 
 const { htmlToText } = require('html-to-text');
+//const Email = require('email-templates'); 
+const handlebars = require('handlebars
 const pug = require('pug'); 
 const path = require('path'); 
-const fs = require('fs'); 
-const handlebars = require('handlebars'); 
 
-//const emailTemplateSource = fs.readFileSync(path.join(__dirname, '../views/email/htmlEmail.hbs'), 'utf8')
+let tansporter = nodemailer.createTransport({
+	service: 'SendinBlue', 
+	auth: { 
+		user: process.env.SENDINBLUE_USERNAME, 
+		pass: process.env.SENDINBLUE_PASSWORD
+	}
+}); 
 
-//const mailgunAuth = {
-//	 auth: {
-//                user: process.env.SENDINBLUE_USERNAME,
-//                pass: process.env.SENDINBLUE_PASSWORD
-//            }
-//}
+//const email = new Email({ 
+//	views: { root: '../views/email', options: { extension: 'hbs' } }, 
 
-//const smtpTransport = nodemailer.c
 module.exports = class Email {
-    constructor(user, products, totalPrice){
-//       constructor(user){
+  ///  constructor(user, products, totalPrice){
+       constructor(user){
         this.to = user.email 
         this.firstName = user.name.split(" ")[0];
-        this.products = products; 
-        this.totalPrice = totalPrice; 
+  ///      this.products = products; 
+  ///      this.totalPrice = totalPrice; 
         this.from = `NYCKiqs support@nyckiqs.live`
     }
 
@@ -36,10 +37,8 @@ module.exports = class Email {
     }
 
     async send(template, subject){
-  ///      const html = pug.renderFile(path.join(__dirname, `../views/email/${template}.pug`), {
-///	   const html = fs.readFileSync(path.join(__dirname, '../views/email/htmlEmail.hbs'), {
-	   const html = fs.readFileSync(path.join(__dirname, '../views/email/htmlEmail.hbs'), {
-
+    ///    const html = pug.renderFile(path.join(__dirname, `../views/email/${template}.pug`), {
+	   const html = 
             firstName: this.firstName, 
             products: this.products, 
             subject: subject, 

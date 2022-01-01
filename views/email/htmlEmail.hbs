@@ -6,11 +6,21 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <title>NYCKiqs Email</title>
     <style>
+	.roomImg{
+            background: url('https://commons.wikimedia.org/wiki/File:Roomstore.jpg');
+        }
+        .order-details, .order-details td{
+            border: 1px solid white;
+        }
+
         /* to make responsive for large screen */
         @media only screen and (min-width: 960px){
             .container{
                 width: 960px;
             }
+            .receipt-table{
+                width: 700px; 
+            }		
             .first-stats{
                 width: 30%;
                 margin-left: 50px;
@@ -89,7 +99,7 @@
                                 style="border: 5px solid #DF7DDC;">
                                 <tr style="background: black;">
                                     <td align="center">
-                                        <img src="https://postimg.cc/1gMYQqhx">
+                                        <img src="https://commons.wikimedia.org/wiki/File:Roomstore.jpg">
                                     </td>
                                 </tr>
                             </table>
@@ -109,11 +119,44 @@
                     </tr>
 
                     <tr>
-                        <td>
+                        <td style="background: black;>
                             <table class="receipt-table" width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="background: black; text-align: center;">
                                 <tr>
-                                    <td>
-                                        <img src="./images/emailImages/roomstore.jpg" width="600px" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0), transparent);">
+                                    <td class="roomImg" height="300px" style="color: white;">
+                                      <!--  <img src="./images/emailImages/roomstore.jpg" width="600px" style="background-image: linear-gradient(to top, rgba(0, 0, 0, 0), transparent);"> -->
+				      <p>
+                                            <h1>Your Order is Confirmed!</h1>
+                                            <table class="order-details" align="center" cellspacing="5" cellpadding="3" style="color:white; background: black;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Description</th>
+                                                        <th>Quantity</th>
+                                                        <th>Price</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Balenciaga White Red Blue</td>
+                                                        <td>Size: 44</td>
+                                                        <td>1</td>
+                                                        <td>$550</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>adidas Yeezy 350 Mono Ice</td>
+                                                        <td>Size: 5</td>
+                                                        <td>1</td>
+                                                        <td>$280</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>adidas Yeezy 350 Sand Taupe</td>
+                                                        <td>Size: 13</td>
+                                                        <td>1</td>
+                                                        <td>$240</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </p>	
                                     </td>
                                 </tr>
                             </table>
