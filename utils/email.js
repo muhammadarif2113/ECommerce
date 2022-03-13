@@ -60,6 +60,6 @@ module.exports = class Email {
     }
 
     async sendThankYou(){
-        await this.send('thankyouEmail2', 'NYCKiqs - Purchase Confirmation')
+        await this.send('thankyouEmail', 'NYCKiqs - Purchase Confirmation')
     }
 }
