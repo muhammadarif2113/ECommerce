@@ -36,7 +36,7 @@ module.exports = class Email {
     }
 
     async send(template, subject){
-        const html = pug.renderFile(path.join(__dirname, `../views/newEmail/${template}.pug`), {
+        const html = pug.renderFile(path.join(__dirname, `../views/email/${template}.pug`), {
 
 //	   const html = fs.readFileSync(path.join(__dirname, `../views/email/${template}.hbs`), {
 	//   const html = fs.readFileSync(path.join(__dirname, '../views/email/htmlEmail.hbs'), {
@@ -60,6 +60,6 @@ module.exports = class Email {
     }
 
     async sendThankYou(){
-        await this.send('newEmail', 'NYCKiqs - Purchase Confirmation')
+        await this.send('thankyouEmail', 'NYCKiqs - Purchase Confirmation')
     }
 }
