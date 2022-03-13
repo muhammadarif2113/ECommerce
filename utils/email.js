@@ -38,7 +38,7 @@ module.exports = class Email {
     async send(template, subject){
 //        const html = pug.renderFile(path.join(__dirname, `../views/email/${template}.pug`), {
 
-	   const html = fs.readFileSync(path.join(__dirname, '../views/email/${template}.hbs'), {
+	   const html = fs.readFileSync(path.join(__dirname, `../views/email/${template}.hbs`), {
 	//   const html = fs.readFileSync(path.join(__dirname, '../views/email/htmlEmail.hbs'), {
 
             firstName: this.firstName, 
